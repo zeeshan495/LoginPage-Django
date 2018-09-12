@@ -84,7 +84,7 @@ def register_page(request):
     if request.method == 'POST':
         # form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            # form.save()
             print(form.cleaned_data)
             username = form.cleaned_data.get("username")
             email = form.cleaned_data.get("email")
