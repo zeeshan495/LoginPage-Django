@@ -22,11 +22,11 @@ def logout_page(request):
         del request.session['username']
     except:
         pass
-    form = LoginForm(request.POST or None)
-    context = {"form": form}
-    return render(request, "login.html", context)
+    # form = LoginForm(request.POST or None)
+    # context = {"form": form}
+    # return render(request, "login.html", context)
 
-    # return redirect("http://127.0.0.1:8000/login/")
+    return redirect("http://127.0.0.1:8000/login/")
 
 
 def home_page(request):
@@ -48,16 +48,20 @@ def home_page(request):
 
 
 def login_page(request):
+    print("inside login page")
     if request.session.has_key('username'):
         username = request.session['username']
         return render(request, 'home.html', {"username": username})
     else:
         form = LoginForm(request.POST or None)
         context = {"form": form}
+        print("inside login_page....inside else")
         # print(request.user.is_authenticated())
         if request.method == 'POST':
             form = LoginForm(request.POST)
+            print("request post...inside first if")
             if form.is_valid():
+                print("request post...inside second if")
                 print(form.cleaned_data)
                 username = form.cleaned_data.get("username")
                 password = form.cleaned_data.get("password")
@@ -90,6 +94,9 @@ def register_page(request):
             email = form.cleaned_data.get("email")
             password = form.cleaned_data.get("password")
             new_user = User.objects.create_user(username, email, password)
+            new_user.is_staff = True
+            new_user.is_superuser = True
+            new_user.save()
             print(new_user)
             return redirect('login')
         # else:
