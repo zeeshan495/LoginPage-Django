@@ -66,9 +66,9 @@ def login_page(request):
                 username = form.cleaned_data.get("username")
                 password = form.cleaned_data.get("password")
                 user = authenticate(request, username=username, password=password)
-                request.session['username'] = username
-                print(user)
                 if user is not None:
+                    request.session['username'] = username
+                    print(user)
                     login(request, user)
                     # Redirect to a success page.
                     # context['form'] = LoginForm()
