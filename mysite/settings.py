@@ -88,15 +88,14 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #     }
 # }
 
-if 'myproject.cnnecgm7nzqm.ap-south-1.rds.amazonaws.com' in os.environ:
-    DATABASES = {
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['myproject'],
-            'USER': os.environ['myprojectuser'],
-            'PASSWORD': os.environ['password'],
-            'HOST': os.environ['myproject.cnnecgm7nzqm.ap-south-1.rds.amazonaws.com'],
-            'PORT': os.environ['5432'],
+            'NAME': 'myproject',
+            'USER': 'myprojectuser',
+            'PASSWORD': 'password',
+            'HOST': 'myproject.cnnecgm7nzqm.ap-south-1.rds.amazonaws.com',
+            'PORT': '5432',
         }
     }
 
