@@ -25,7 +25,7 @@ SECRET_KEY = 'jcv#&g&jkwsec9@0e7u*qx9y&4z+c-$np^9vro%w7-e@=hui3v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.232.26.246','18.222.137.252','13.233.2.167','127.0.0.1']
+ALLOWED_HOSTS = ['13.233.2.167','127.0.0.1']
 
 
 # Application definition
